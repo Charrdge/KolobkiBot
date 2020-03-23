@@ -20,7 +20,7 @@ namespace ColobkiMessage
         {
             get
             {
-                if (_key is null) _key = new StreamReader(KEYFILENAME).ReadToEnd();
+                if (_key is null || _key == "") _key = new StreamReader(KEYFILENAME).ReadLine();
                 return _key;
             }
         }
@@ -33,11 +33,11 @@ namespace ColobkiMessage
 		{
             Console.WriteLine("Connect to telegram...");
 
-            var api = new TelegramBotClient("1102672483:AAGWppGfU0tkCuTDyrR8YaqSY4JEad850P8");
+            var api = new TelegramBotClient(Key);
 
             var task = api.GetMeAsync();
 
-            //task.Wait();
+            task.Wait();
 
             var me = task.Result;
             Console.WriteLine($"Telegram bot with ID {me.Id} and name {me.FirstName} has been connected");
