@@ -37,7 +37,7 @@ namespace ColobkiMessage
 
             var task = api.GetMeAsync();
 
-            task.Wait();
+            //task.Wait();
 
             var me = task.Result;
             Console.WriteLine($"Telegram bot with ID {me.Id} and name {me.FirstName} has been connected");
