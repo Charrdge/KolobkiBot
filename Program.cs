@@ -61,7 +61,7 @@ namespace ColobkiMessage
 
                 var file = new Telegram.Bot.Types.InputFiles.InputOnlineFile(stream);
 
-                var task = api.SendDocumentAsync(chat, stream);
+                var task = api.SendPhotoAsync(chat, stream);
                 
                 task.Wait();
 
