@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.exe
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.deps.json
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.runtimeconfig.json
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.runtimeconfig.dev.json
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.dll
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\ColobkiMessage.pdb
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.csprojAssemblyReference.cache
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.AssemblyInfo.cs
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.dll
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.pdb
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\user\Documents\Проекты\ColobkiMessage\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+C:\Users\user\Documents\Проекты\ColobkiMessage\obj\Debug\netcoreapp3.1\ColobkiMessage.csproj.CopyComplete
