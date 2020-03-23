@@ -43,6 +43,8 @@ namespace ColobkiMessage
             Console.WriteLine($"Telegram bot with ID {me.Id} and name {me.FirstName} has been connected");
 
             api.OnMessage += (object j, MessageEventArgs e) => Actor(api, e);
+
+            while (true) System.Threading.Thread.Sleep(10000);
         }
 
         public static void Actor(TelegramBotClient api, MessageEventArgs e)
