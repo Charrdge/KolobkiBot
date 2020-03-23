@@ -33,7 +33,7 @@ namespace ColobkiMessage
 		{
             Console.WriteLine("Connect to telegram...");
 
-            var api = new TelegramBotClient(Key);
+            var api = new TelegramBotClient("1102672483:AAGWppGfU0tkCuTDyrR8YaqSY4JEad850P8");
 
             var task = api.GetMeAsync();
 
