@@ -50,6 +50,8 @@ namespace ColobkiMessage
 
             api.StartReceiving();
 
+            
+
             while (true) System.Threading.Thread.Sleep(10000);
         }
 
