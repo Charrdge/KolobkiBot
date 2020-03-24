@@ -83,7 +83,7 @@ namespace ColobkiMessage
 
             Console.WriteLine("op");
 
-            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[]
+            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif[]
             {
                 new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(path, path)
             };
