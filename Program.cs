@@ -81,6 +81,8 @@ namespace ColobkiMessage
 
             //Stream stream = new FileStream(path, FileMode.Open);
 
+            Console.WriteLine("op");
+
             var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[]
             {
                 new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(path, path)
