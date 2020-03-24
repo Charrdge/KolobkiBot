@@ -42,14 +42,18 @@ namespace ColobkiMessage
             var me = task.Result;
             Console.WriteLine($"Telegram bot with ID {me.Id} and name {me.FirstName} has been connected");
 
-            api.OnMessage += (object j, MessageEventArgs e) => new System.Threading.Tasks.Task(() => Actor(api, e)).Start();
+            api.OnMessage += (object j, MessageEventArgs e) => new System.Threading.Tasks.Task(() => MessageActor(api, e)).Start();
+
+            api.OnInlineQuery += (object j, InlineQueryEventArgs e) => new System.Threading.Tasks.Task(() => InlineActor(api, e)).Start();
+
+            api.OnInlineResultChosen += (object j, ChosenInlineResultEventArgs e) => new System.Threading.Tasks.Task(() => InlineResultActor(api, e)).Start();
 
             api.StartReceiving();
 
             while (true) System.Threading.Thread.Sleep(10000);
         }
 
-        public static void Actor(TelegramBotClient api, MessageEventArgs e)
+        public static void MessageActor(TelegramBotClient api, MessageEventArgs e)
         {
             if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
             {
@@ -67,6 +71,28 @@ namespace ColobkiMessage
 
                 File.Delete(path);
             }
+        }
+
+        public static void InlineActor(TelegramBotClient api, InlineQueryEventArgs e)
+        {
+            string text = e.InlineQuery.Query;
+
+            string path = GetGif(text);
+
+            //Stream stream = new FileStream(path, FileMode.Open);
+
+            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[]
+            {
+                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(path, path)
+            };
+
+            api.AnswerInlineQueryAsync(e.InlineQuery.Id, arr);
+        }
+
+        private static void InlineResultActor(TelegramBotClient api, ChosenInlineResultEventArgs e)
+        {
+            string id = e.ChosenInlineResult.Query;
+            string path = e.ChosenInlineResult.ResultId;
         }
 
         private static string GetGif(string str)
