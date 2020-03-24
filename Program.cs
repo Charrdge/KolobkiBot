@@ -59,9 +59,9 @@ namespace ColobkiMessage
 
                 Stream stream = new FileStream(path, FileMode.Open);
 
-                var file = new Telegram.Bot.Types.InputFiles.InputOnlineFile(stream);
+                //var file = new Telegram.Bot.Types.InputFiles.InputOnlineFile(stream);
 
-                var task = api.SendPhotoAsync(chat, stream);
+                var task = api.SendVideoAsync(chat, stream);
                 
                 task.Wait();
 
