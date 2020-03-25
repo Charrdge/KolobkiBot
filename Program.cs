@@ -83,23 +83,19 @@ namespace ColobkiMessage
 
             //Stream stream = new FileStream(path, FileMode.Open);
 
-            Console.WriteLine("op");
+            Console.WriteLine("inline");
 
             var url = $"http://www.laie-smileys.com/spray/download/{path}";
 
-            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif[]
-            {
+            api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
                 new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif(path, url, url)
-            };
-
-            api.AnswerInlineQueryAsync(e.InlineQuery.Id, arr);
+            });
         }
 
         private static void InlineResultActor(TelegramBotClient api, ChosenInlineResultEventArgs e)
         {
             string id = e.ChosenInlineResult.Query;
             string path = e.ChosenInlineResult.ResultId;
-            
         }
 
         private static string GetGif(string str)
