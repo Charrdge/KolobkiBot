@@ -85,9 +85,11 @@ namespace ColobkiMessage
 
             Console.WriteLine("op");
 
-            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif[]
+            var url = $"http://www.laie-smileys.com/spray/download/{path}";
+
+            var arr = new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif[]
             {
-                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(path, path)
+                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif(path, url, url)
             };
 
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, arr);
@@ -97,6 +99,7 @@ namespace ColobkiMessage
         {
             string id = e.ChosenInlineResult.Query;
             string path = e.ChosenInlineResult.ResultId;
+            
         }
 
         private static string GetGif(string str)
