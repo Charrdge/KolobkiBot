@@ -59,7 +59,7 @@ namespace ColobkiMessage
         {
             if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
             {
-                string path = GetGif(e.Message.Text);
+                string path = DownloadGif(GetGifUrl(e.Message.Text));
 
                 var chat = e.Message.Chat.Id;
 
@@ -79,14 +79,14 @@ namespace ColobkiMessage
         {
             string text = e.InlineQuery.Query;
 
-            string path = GetGif(text);
+            string url = GetGifUrl(text);
 
             //Stream stream = new FileStream(path, FileMode.Open);
 
             Console.WriteLine("inline");
 
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
-                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(e.InlineQuery.Id, path)
+                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif(e.InlineQuery.Id, url, url)
             }, 12000);
         }
 
@@ -96,9 +96,9 @@ namespace ColobkiMessage
             string path = e.ChosenInlineResult.ResultId;
         }
 
-        private static string GetGif(string str)
+        private static string GetGifUrl(string str)
         {
-            string path = "";
+            string url = "";
 
             var request = WebRequest.Create("http://www.laie-smileys.com/spray/index.php");
             request.Method = "POST";
@@ -133,18 +133,22 @@ namespace ColobkiMessage
                 // Read the content.  
                 string responseFromServer = reader.ReadToEnd();
                 // Display the content.
-                var url = "http://www.laie-smileys.com/spray/" + responseFromServer.Substring(responseFromServer.IndexOf("download"));
+                url = "http://www.laie-smileys.com/spray/" + responseFromServer.Substring(responseFromServer.IndexOf("download"));
                 url = url.Remove(url.IndexOf("\""));
                 Console.WriteLine(url);
-
-                var webClient = new WebClient();
-                path = $"{Num}.gif";
-                webClient.DownloadFile(url, path);
             }
 
             // Close the response.  
             response.Close();
 
+            return url;
+        }
+
+        private static string DownloadGif(string url)
+        {
+            var webClient = new WebClient();
+            string path = $"{Num}.gif";
+            webClient.DownloadFile(url, path);
             return path;
         }
     }
