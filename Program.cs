@@ -88,7 +88,7 @@ namespace ColobkiMessage
             var url = $"http://www.laie-smileys.com/spray/download/{path}";
 
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
-                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif(path, url, url)
+                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(e.InlineQuery.Id, path)
             });
         }
 
