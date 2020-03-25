@@ -85,11 +85,9 @@ namespace ColobkiMessage
 
             Console.WriteLine("inline");
 
-            var url = $"http://www.laie-smileys.com/spray/download/{path}";
-
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
                 new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultCachedGif(e.InlineQuery.Id, path)
-            });
+            }, 12000);
         }
 
         private static void InlineResultActor(TelegramBotClient api, ChosenInlineResultEventArgs e)
