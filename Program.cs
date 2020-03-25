@@ -83,7 +83,7 @@ namespace ColobkiMessage
 
             //Stream stream = new FileStream(path, FileMode.Open);
 
-            Console.WriteLine("inline");
+            Console.WriteLine(url);
 
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
                 new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif("1", url, url)
