@@ -86,7 +86,7 @@ namespace ColobkiMessage
             Console.WriteLine("inline");
 
             api.AnswerInlineQueryAsync(e.InlineQuery.Id, new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultBase[] {
-                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif(e.InlineQuery.Id, url, url)
+                new Telegram.Bot.Types.InlineQueryResults.InlineQueryResultGif("1", url, url)
             }, 12000);
         }
 
